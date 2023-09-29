@@ -41,7 +41,7 @@ class PostController extends Controller
 
         if ($request->hasFile('featured_image')) {
             // put image in the public storage
-            $filePath = Storage::disk('public')->put('images/posts/featured-images', request()->file('featured_image'));
+            $filePath = Storage::disk('s3')->put('images/posts/featured-images', request()->file('featured_image'));
             $validated['featured_image'] = $filePath;
         }
 
